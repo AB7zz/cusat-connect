@@ -4,8 +4,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import library from '../../../assets/images/hubspots/lib.jpg'
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import { Link } from 'react-router-dom';

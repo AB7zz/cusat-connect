@@ -52,19 +52,32 @@ const accountSchema = new mongoose.Schema({
 
 const itemSchema = mongoose.Schema({
     title: {
-        
+        type: String, 
+        required: true
     },
     price: {
-
+        type: String, 
+        required: true
     },
-    owner: {
-
+    name: {
+        type: String, 
+        required: true
     },
-    upiId: {
-
+    regId: {
+        type: String, 
+        required: true
     },
-    location: {
-
+    loc: {
+        type: String, 
+        required: true
+    },
+    rent: {
+        type: String,
+        required: true
+    },
+    img: {
+        type: String, 
+        required: true
     }
 }, {timestamps: true})
 
@@ -169,5 +182,25 @@ router.get('/mentor', async(request,response) => {
         response.status(200).json(mentors)
     }catch(error){
         console.log('Error 10: ', error)
+    }
+})
+
+router.post('/item', async(request, response) => {
+    try{
+        const item = request.body
+        const newItem = new Items(item)
+        await newItem.save()
+        response.send({message: "You have successfully added an item", success: true})
+    }catch(error){
+        console.log('Error 11 : ', error)
+    }
+})
+
+router.get('/item', async(request, response) => {
+    try{
+        const items = await Items.find()
+        response.status(200).json(items)
+    }catch(error){
+        console.log('Error 12: ', error)
     }
 })

@@ -10,6 +10,7 @@ import Items from './components/Items/Items'
 import Map from './components/Map/Map'
 import Hubspots from './components/Hubspots/Hubspots'
 import MentorRegister from './components/MentorRegister/MentorRegister'
+import ItemUpload from './components/ItemUpload/ItemUpload'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/map' element={<Map/>} />
         <Route path='/hubspots' element={<Hubspots/>} />
         <Route path='/mentorRegistration' element={<MentorRegister/>} />
+        <Route path='/itemUpload' element={<ItemUpload/>} />
       </Routes>
     </BrowserRouter>
   )

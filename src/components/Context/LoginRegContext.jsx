@@ -7,6 +7,7 @@ export const LoginContextProvider = ({children}) => {
     const url = 'http://localhost:9000'
     const [isLogin, setLogin] = React.useState(false)
     const [mentorImage, setMentorImage] = React.useState(null)
+    const [itemImage, setItemImage] = React.useState(null)
     const [regAccount, setRegAccount] = React.useState({
         name: '',
         regId: '',
@@ -26,6 +27,48 @@ export const LoginContextProvider = ({children}) => {
         dept: '',
         img: ''
     })
+    const [item, setItem] = React.useState({
+        title: '',
+        price: '',
+        name: '',
+        regId: localStorage.getItem('regId') | '',
+        loc: '',
+        rent: '',
+        img: ''
+    })
+
+    const handleItemChange = (e) => {
+        setItem(prevState => ({
+            ...prevState, [e.target.name] : e.target.value
+        }))
+    }
+
+    const handleItemConfirm = async(e) => {
+        if(itemImage){
+            const data = new FormData()
+            const filename = Date.now() + itemImage.name
+            data.append('name', filename)
+            data.append('file', itemImage)
+            item.img = filename
+            try{
+                await axios.post(`${url}/imgUpload`, data)
+            }catch(error){
+                console.log('Error 7: ', error)
+            }
+        }
+    }
+
+    const handleItemSubmit = async(e) => {
+        e.preventDefault()
+        try{
+            const res = await axios.post(`${url}/item`, item)
+            if(res.data.success == true){
+                window.location.replace('/items')
+            }
+        }catch(error){
+            console.log('Error 11: ', error)
+        }
+    }
 
     const handleMentorRegChange = (e) => {
         setMentor(prevState => ({
@@ -96,7 +139,7 @@ export const LoginContextProvider = ({children}) => {
                 window.location.replace('/home')
             }
         }catch(error){
-        console.log('Error 1: ', error)
+            console.log('Error 1: ', error)
         }
     }
 
@@ -119,7 +162,11 @@ export const LoginContextProvider = ({children}) => {
                 handleMentorRegChange,
                 handleMentorRegSubmit,
                 setMentorImage,
-                handleMentorRegConfirm
+                handleMentorRegConfirm,
+                handleItemChange,
+                handleItemConfirm,
+                handleItemSubmit,
+                setItemImage
             }}>
                 {children}
             </LoginContext.Provider>
