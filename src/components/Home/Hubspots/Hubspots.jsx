@@ -6,11 +6,13 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import library from '../../../assets/images/hubspots/library.jpg'
+import lib from '../../../assets/images/hubspots/lib.jpg'
+import cr from '../../../assets/images/hubspots/cr.jpg'
+import amt from '../../../assets/images/hubspots/amt.jpg'
 import PinDropIcon from '@mui/icons-material/PinDrop';
+import {Link} from 'react-router-dom'
 
 const Hubspot = ({img, title, stars, km}) => {
-  console.log(stars)
   return (
     <Card className='mt-4 rounded-[20px]' sx={{ width: 120, maxHeight: 140 }}>
       <CardActionArea>
@@ -50,12 +52,12 @@ const Hubspots = () => {
     <div className='bg-[#172D3A] h-250px py-3 rounded-b-[15px]'>
       <div className='flex px-5 justify-between'>
         <h1 className='text-white font-extrabold oxaniumfont'>Hubspots near by</h1>
-        <p className='text-[#0085FF]'>See all</p>
+        <Link to='/hubspots' className='text-[#0085FF]'>See all</Link>
       </div>
       <div className='flex flex-row justify-evenly'>
-        <Hubspot img={library} title="University Library" stars={[1,1,1,0,0]} km={2.1} />
-        <Hubspot img={library} title="CUSAT Restaurant" stars={[1,1,0,0,0]} km={2.1} />
-        <Hubspot img={library} title="Aminity Center" stars={[1,1,1,1,0]} km={2.1} />
+        <Hubspot img={lib} title="University Library" stars={[1,1,1,0,0]} km={2.1} />
+        <Hubspot img={cr} title="CUSAT Restaurant" stars={[1,1,0,0,0]} km={2.1} />
+        <Hubspot img={amt} title="Aminity Center" stars={[1,1,1,1,0]} km={2.1} />
       </div>
     </div>
   )

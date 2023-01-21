@@ -17,39 +17,39 @@ export default function BottomNav() {
     };
 
     return (
-        <BottomNavigation className='bg-white h-20 rounded-[40px] botnav' sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, display: 'flex', alignItems: 'center' }} value={value} onChange={handleChange}>
-            <Link to='/'>
+        <BottomNavigation className='bg-white h-16 mb-4 w-[90%] m-auto rounded-[40px] botnav' sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, display: 'flex', alignItems: 'center' }} value={value} onChange={handleChange}>
+            <Link to='/items'>
                 <BottomNavigationAction
-                    label="Home"
-                    value="home"
+                    label="cart"
+                    value="cart"
                     icon={<img src={cart} alt={cart} />}
                 />
             </Link>
-            <Link to='/page2'>
+            <Link to='/events'>
                 <BottomNavigationAction
-                    label="Sail"
-                    value="sail"
+                    label="events"
+                    value="events"
                     icon={<img src={events} alt={events} />}
                 />
             </Link>
-            <Link to='page3'>
+            <Link to='/home'>
                 <BottomNavigationAction
-                    label="Radar"
-                    value="radar"
+                    label="home"
+                    value="home"
                     icon={<img src={home} alt={home} />}
                 />
             </Link>
-            <Link to='page4'>
+            <Link to='/mentors'>
                 <BottomNavigationAction
-                    label="AR"
-                    value="ar"
+                    label="mentors"
+                    value="mentors"
                     icon={<img src={mentors} alt={mentors} />}
                 />
             </Link>
-            <Link to='page4'>
+            <Link to='/map'>
                 <BottomNavigationAction
-                    label="AR"
-                    value="ar"
+                    label="pin"
+                    value="pin"
                     icon={<img src={pin} alt={pin} />}
                 />
             </Link>

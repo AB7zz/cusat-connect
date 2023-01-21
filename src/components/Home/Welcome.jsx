@@ -3,8 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../assets/images/static/logo-welcome.png'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import './style.css'
-// import Particles from "react-tsparticles";
-// import { loadFull } from "tsparticles";
+import bg from '../../assets/images/static/bg.png'
 
 const Welcome = () => {
     const particlesInit = React.useCallback(async engine => {
@@ -17,8 +16,7 @@ const Welcome = () => {
     }, []);
     return (
         <>
-            {/* <Particles id="tsparticles" url="http://foo.bar/particles.json" init={particlesInit} loaded={particlesLoaded} /> */}
-            <div className='bg-gradient-to-b from-[#101316] to-[#06212f] h-screen flex flex-col justify-center'>
+            <div className='bg-cover bg-center h-screen flex flex-col justify-center' style={{backgroundImage: `url(${bg})`}}>
                 <img className='m-auto ml-10 mt-40' src={logo} alt="logo" />
                 <Link className='metrofont bg-[#172D3A] m-auto rounded-[25px] text-white px-12 py-4' to='/login'>Make CUSAT simpler <ArrowCircleRightIcon/> </Link>
             </div>
