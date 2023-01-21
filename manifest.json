@@ -1,0 +1,16 @@
+{
+    "short_name": "CUSAT",
+    "name": "CUSAT Connect",
+    "icons": [
+      {
+        "src": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7a3ec529632909.55fc107b84b8c.png",
+        "sizes": "64x64 32x32 24x24 16x16 512x512 192x192",
+        "type": "image/png"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+  }
+  

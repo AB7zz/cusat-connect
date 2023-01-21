@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=Metrophobic&family=Oxanium&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.metrofont{
+    font-family: 'Metrophobic', sans-serif;
+}
+
+.jockeyfont{
+    font-family: 'Jockey One', sans-serif;
+}
+
+.oxaniumfont{
+    font-family: 'Oxanium', cursive;
+}

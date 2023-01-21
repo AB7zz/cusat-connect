@@ -1,0 +1,53 @@
+.circle{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color:#0F1417;
+    box-shadow: 30px 4px 30px 5px rgba(0, 0, 0, 0.25);
+    animation-name: float;
+    animation-duration: 2.5s;
+    position: relative;
+    animation-fill-mode: forwards;
+}
+
+.circle2{
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color:#172D3A;
+    box-shadow: 30px 4px 30px 5px rgba(0, 0, 0, 0.25);
+    animation-name: opacity;
+    animation-duration: 2.5s;
+    bottom: 570px;
+    right: 300px;
+}
+
+.form{
+    animation-name: opacity;
+    animation-duration: 2.5s;
+}
+
+@keyframes float{
+    0%{
+        bottom: 0px;
+        right: 0px;
+    }
+    100%{
+        bottom: 330px;
+        right: 150px;
+        background-color: #172D3A;
+    }
+}
+
+@keyframes opacity{
+    0%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
