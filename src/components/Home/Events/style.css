@@ -1,125 +1,106 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+main#carousel {
+    grid-row: 1 / 2;
+    grid-column: 1 / 8;
+    width: 100vw;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    --items: 5;
+    --middle: 3;
+    --position: 1;
+    pointer-events: none;
+  }
 
-
-.container {
-  max-width: 124rem;
-  padding: 0 1rem;
-  margin: 0 auto;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.section-heading {
-  font-size: 3rem;
-  color: var(--primary);
-  padding: 2rem 0;
-}
-
-#tranding {
-  padding: 4rem 0;
-}
-
-#tranding .tranding-slider {
-  padding: 2rem 0;
-  position: relative;
-}
-
-.tranding-slide {
-  width: 37rem;
-  position: relative;
-}
-
-.tranding-slide .tranding-slide-img img {
-  width: 100px;
-  height: 100px;
-  border-radius: 2rem;
-  object-fit: cover;
-}
-
-.tranding-slide .tranding-slide-content {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-
-}
-
-.tranding-slide-content .food-price {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  color: var(--white);
-}
-
-.tranding-slide-content .tranding-slide-content-bottom {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  color: var(--white);
-}
-
-.food-rating {
-  padding-top: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.rating ion-icon {
-  color: var(--primary);
-}
-
-.swiper-slide-shadow-left,
-.swiper-slide-shadow-right {
-  display: none;
-}
-
-.tranding-slider-control {
-  position: relative;
-  bottom: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tranding-slider-control .swiper-button-next {
-  left: 58% !important;
-  transform: translateX(-58%) !important;
-}
-
-
-
-.tranding-slider-control .slider-arrow {
-  background: var(--white);
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  left: 42%;
-  transform: translateX(-42%);
-  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
-}
-
-.tranding-slider-control .slider-arrow ion-icon {
-  font-size: 2rem;
-  color: #222224;
-}
-
-.tranding-slider-control .slider-arrow::after {
-  content: '';
-}
-
-.tranding-slider-control .swiper-pagination {
-  position: relative;
-  width: 15rem;
-  bottom: 1rem;
-}
-
-.tranding-slider-control .swiper-pagination .swiper-pagination-bullet {
-  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
-}
-
-.tranding-slider-control .swiper-pagination .swiper-pagination-bullet-active {
-  background: var(--primary);
-}
+  .radioinput{
+    margin-left: 55px !important;
+    transform: scale(2.0);
+  }
+  
+  div.item {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: coral;
+    --r: calc(var(--position) - var(--offset));
+    --abs: max(calc(var(--r) * -1), var(--r));
+    transition: all 0.25s linear;
+    transform: rotateY(calc(-10deg * var(--r)))
+      translateX(calc(-300px * var(--r)));
+    z-index: calc((var(--position) - var(--abs)));
+  }
+  
+  div.item:nth-of-type(1) {
+    --offset: 1;
+    background-image:url('/src/assets/images/events/1.jpeg');
+    background-size: cover;
+    background-position: center;
+    
+  }
+  div.item:nth-of-type(2) {
+    --offset: 2;
+    background-image:url('/src/assets/images/events/2.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  div.item:nth-of-type(3) {
+    --offset: 3;
+    background-image:url('/src/assets/images/events/3.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  div.item:nth-of-type(4) {
+    --offset: 4;
+    background-image:url('/src/assets/images/events/2.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  div.item:nth-of-type(5) {
+    --offset: 5;
+    background-image:url('/src/assets/images/events/1.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .radioinput:nth-of-type(1) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  .radioinput:nth-of-type(1):checked ~ main#carousel {
+    --position: 1;
+  }
+  
+  .radioinput:nth-of-type(2) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+  .radioinput:nth-of-type(2):checked ~ main#carousel {
+    --position: 2;
+  }
+  
+  .radioinput:nth-of-type(3) {
+    grid-column: 4 /5;
+    grid-row: 2 / 3;
+  }
+  .radioinput:nth-of-type(3):checked ~ main#carousel {
+    --position: 3;
+  }
+  
+  .radioinput:nth-of-type(4) {
+    grid-column: 5 / 6;
+    grid-row: 2 / 3;
+  }
+  .radioinput:nth-of-type(4):checked ~ main#carousel {
+    --position: 4;
+  }
+  
+  .radioinput:nth-of-type(5) {
+    grid-column: 6 / 7;
+    grid-row: 2 / 3;
+  }
+  .radioinput:nth-of-type(5):checked ~ main#carousel {
+    --position: 5;
+  }

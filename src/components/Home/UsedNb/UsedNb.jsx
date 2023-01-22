@@ -39,9 +39,9 @@ const Nb = ({img, title, price, loc}) => {
 
 const UsedNb = () => {
   return (
-    <div className='bg-[#172D3A] h-250px py-3'>
+    <div className='bg-white h-250px py-3'>
       <div className='flex px-5 justify-between'>
-        <h1 className='text-white font-extrabold oxaniumfont'>Used Notes</h1>
+        <h1 className='text-[#172D3A] font-extrabold oxaniumfont'>Used Notes</h1>
         <Link to='/items' className='text-[#0085FF]'>See all</Link>
       </div>
       <div className='flex flex-row justify-evenly'>

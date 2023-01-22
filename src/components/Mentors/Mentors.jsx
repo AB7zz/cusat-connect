@@ -24,7 +24,7 @@ export const Mentor = ({url, name, skills, img, dept, campus, regId}) => {
             height="140"
             image={`${url}/images/${img}`}
             alt="green iguana"
-            className='rounded-[50%] w-[100px] m-auto mt-4'
+            className='rounded-[50%] w-[100px] h-[100px] m-auto mt-4 mb-10'
 
           />
           <CardContent className='bg-[#1C3646]'>

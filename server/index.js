@@ -7,7 +7,6 @@ import bodyParser from 'body-parser'
 import multer from 'multer'
 import path from 'path'
 import Bcrypt from 'bcryptjs'
-
 dotenv.config()
 
 const __dirname = path.resolve(path.dirname(''));

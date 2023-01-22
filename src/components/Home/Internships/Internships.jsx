@@ -4,16 +4,16 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import mini from '../../../assets/images/Items/minidrafter.jpg'
-import bike from '../../../assets/images/Items/bike.jpg'
-import rlescle from '../../../assets/images/Items/rlescle.jpg'
+import microsoft from '../../../assets/images/Internships/microsoft.png'
+import google from '../../../assets/images/Internships/google.png'
+import facebook from '../../../assets/images/Internships/facebook.png'
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import { Link } from 'react-router-dom';
 
 
 const Item = ({img, title, price, loc}) => {
   return (
-    <Card className='mt-4 rounded-[20px]' sx={{ width: 120, maxHeight: 140 }}>
+    <Card className='mt-4 rounded-[20px]' sx={{ width: 120, height: 160 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -22,7 +22,7 @@ const Item = ({img, title, price, loc}) => {
           alt="green iguana"
           className='absolute h-full'
         />
-        <CardContent className='text-sm text-white relative left-[7px] h-[135px] top-[70px] !p-[0.2rem] bg-black bg-opacity-40'>
+        <CardContent className='text-sm text-white relative left-[0px] h-[135px] top-[70px] !p-[0.2rem] bg-black bg-opacity-40'>
           {title}
           <Typography className='text-white text-xs'>
             ₹ {price}
@@ -37,20 +37,20 @@ const Item = ({img, title, price, loc}) => {
   )
 }
 
-const Items = () => {
+const Internships = () => {
   return (
-    <div className='bg-[#172D3A] h-250px py-3 mb-24'>
+    <div className='bg-[#172D3A] h-250px py-3'>
       <div className='flex px-5 justify-between'>
-        <h1 className='text-white font-extrabold oxaniumfont'>Items for sale</h1>
+        <h1 className='text-white font-extrabold oxaniumfont'>Internship Offers</h1>
         <Link to='/items' className='text-[#0085FF]'>See all</Link>
       </div>
       <div className='flex flex-row justify-evenly'>
-        <Item img={mini} title="Mini Drafter" price={200} loc="Kochi" />
-        <Item img={bike} title="Bike" price={20000} loc="Kochi" />
-        <Item img={rlescle} title="Scale" price={150} loc="Kochi" />
+        <Item img={google} title="SWE Intern Google" price={200} loc="Bangalore, India" />
+        <Item img={microsoft} title="SWE Intern Microsoft" price={20000} loc="Kochi, India" />
+        <Item img={facebook} title="SWE Intern Facebook" price={150} loc="Bangalore, India" />
       </div>
     </div>
   )
 }
 
-export default Items
+export default Internships

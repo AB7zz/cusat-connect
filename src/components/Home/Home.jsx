@@ -6,16 +6,18 @@ import Items from './Items/Items'
 import Mentors from './Mentors/Mentors'
 import BottomNav from '../BottomNav/BottomNav'
 import UsedNb from './UsedNb/UsedNb'
+import Internships from './Internships/Internships'
 
 const Home = () => {
   return (
     <>
       <Navbar/>
       <Events/>
+      <Internships/>
       <Hubspots/>
-      <Items/>
-      <UsedNb/>
       <Mentors/>
+      <UsedNb/>
+      <Items/>
       <BottomNav/>
     </>
   )

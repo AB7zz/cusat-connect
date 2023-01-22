@@ -49,9 +49,9 @@ const Hubspot = ({img, title, stars, km}) => {
 
 const Hubspots = () => {
   return (
-    <div className='bg-[#172D3A] h-250px py-3 rounded-b-[15px]'>
+    <div className='bg-white h-250px py-3 rounded-b-[15px] mb-3'>
       <div className='flex px-5 justify-between'>
-        <h1 className='text-white font-extrabold oxaniumfont'>Hubspots near by</h1>
+        <h1 className='text-[#172D3A] font-extrabold oxaniumfont'>Hubspots near by</h1>
         <Link to='/hubspots' className='text-[#0085FF]'>See all</Link>
       </div>
       <div className='flex flex-row justify-evenly'>
