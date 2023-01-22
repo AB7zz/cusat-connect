@@ -47,9 +47,9 @@ const Mentor = () => {
 
 const Mentors = () => {
   return (
-    <div className='bg-[#172D3A] py-3 rounded-[15px] mb-24'>
+    <div className='bg-white py-3 rounded-[15px] mb-24'>
       <div className='flex px-5 justify-between'>
-        <h1 className='ml-5 text-white font-extrabold oxaniumfont mb-8'>Mentors</h1>
+        <h1 className='ml-5 text-[#172D3A] font-extrabold oxaniumfont mb-8'>Mentors</h1>
         <Link to='/mentors' className='text-[#0085FF]'>See all</Link>
       </div>
       <div className='flex justify-around'>

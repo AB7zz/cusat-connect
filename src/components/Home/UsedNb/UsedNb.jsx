@@ -4,14 +4,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import mini from '../../../assets/images/Items/minidrafter.jpg'
-import bike from '../../../assets/images/Items/bike.jpg'
-import rlescle from '../../../assets/images/Items/rlescle.jpg'
+import pic1 from '../../../assets/images/usednb/1.png'
+import pic2 from '../../../assets/images/usednb/2.jpg'
+import pic3 from '../../../assets/images/usednb/3.jpg'
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import { Link } from 'react-router-dom';
 
 
-const Item = ({img, title, price, loc}) => {
+const Nb = ({img, title, price, loc}) => {
   return (
     <Card className='mt-4 rounded-[20px]' sx={{ width: 120, maxHeight: 140 }}>
       <CardActionArea>
@@ -37,20 +37,20 @@ const Item = ({img, title, price, loc}) => {
   )
 }
 
-const Items = () => {
+const UsedNb = () => {
   return (
-    <div className='bg-white h-250px py-3'>
+    <div className='bg-[#172D3A] h-250px py-3'>
       <div className='flex px-5 justify-between'>
-        <h1 className='text-[#172D3A] font-extrabold oxaniumfont'>Items for sale</h1>
+        <h1 className='text-white font-extrabold oxaniumfont'>Used Notes</h1>
         <Link to='/items' className='text-[#0085FF]'>See all</Link>
       </div>
       <div className='flex flex-row justify-evenly'>
-        <Item img={mini} title="Mini Drafter" price={200} loc="Kochi" />
-        <Item img={bike} title="Bike" price={20000} loc="Kochi" />
-        <Item img={rlescle} title="Scale" price={150} loc="Kochi" />
+        <Nb img={pic1} title="DCS Notes" price={0} loc="Kochi" />
+        <Nb img={pic2} title="LATT Notes" price={0} loc="Kochi" />
+        <Nb img={pic3} title="ENG MECH NOTES" price={0} loc="Kochi" />
       </div>
     </div>
   )
 }
 
-export default Items
+export default UsedNb

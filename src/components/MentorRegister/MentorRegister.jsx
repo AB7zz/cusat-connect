@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './style.css'
 import bg from '../../assets/images/static/bg.png'
 import { LoginContext } from '../Context/LoginRegContext'
@@ -7,6 +7,12 @@ import { LoginContext } from '../Context/LoginRegContext'
 
 
 const MentorRegister = () => {
+    const navigate = useNavigate()
+    React.useEffect(() => {
+        if(localStorage.getItem('isLogin') != 'true'){
+            navigate('/home')
+        }
+    }, [])
   const {handleMentorRegSubmit, handleMentorRegChange, setMentorImage, handleMentorRegConfirm} = React.useContext(LoginContext)
   return (
     <>

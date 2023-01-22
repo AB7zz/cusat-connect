@@ -1,9 +1,12 @@
 import React from 'react'
 import axios from 'axios'
+import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 
 export const LoginContext = React.createContext()
 
 export const LoginContextProvider = ({children}) => {
+    const [db, setDB] = React.useState()
     const url = 'http://localhost:9000'
     const [isLogin, setLogin] = React.useState(false)
     const [mentorImage, setMentorImage] = React.useState(null)
@@ -116,6 +119,7 @@ export const LoginContextProvider = ({children}) => {
             if(res.data.isLogin == true){
                 setLogin(true)
                 localStorage.setItem('isLogin', true)
+                localStorage.setItem('regId', logAccount.regId)
                 window.location.replace('/home')
             }
         }catch(error){
@@ -135,6 +139,7 @@ export const LoginContextProvider = ({children}) => {
             const res = await axios.post(`${url}/register`, regAccount)
             if(res.data.isLogin == true){
                 setLogin(true)
+                localStorage.setItem('regId', regAccount.regId)
                 localStorage.setItem('isLogin', true)
                 window.location.replace('/home')
             }
@@ -145,8 +150,25 @@ export const LoginContextProvider = ({children}) => {
 
     const handleLogOut = () => {
         setLogin(false)
-        localStorage.removeItem('isLogin', false)
+        localStorage.removeItem('isLogin')
+        localStorage.removeItem('regId')
         window.location.replace('/home')
+    }
+
+    const initFirebase = () => {
+        const firebaseConfig = {
+            apiKey: "AIzaSyDhgEt0Fjpp0uzYdFbP_HXhf3JVc2UXnFU",
+            authDomain: "cusatconnect-b86d9.firebaseapp.com",
+            projectId: "cusatconnect-b86d9",
+            storageBucket: "cusatconnect-b86d9.appspot.com",
+            messagingSenderId: "155951954668",
+            appId: "1:155951954668:web:c33358c6a50a8d3694c3c9",
+            measurementId: "G-56X3CD6S3E"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        setDB(getDatabase(app))
     }
     return (
         <>
@@ -166,7 +188,9 @@ export const LoginContextProvider = ({children}) => {
                 handleItemChange,
                 handleItemConfirm,
                 handleItemSubmit,
-                setItemImage
+                setItemImage,
+                db,
+                initFirebase
             }}>
                 {children}
             </LoginContext.Provider>

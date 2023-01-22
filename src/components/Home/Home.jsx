@@ -5,6 +5,7 @@ import Hubspots from './Hubspots/Hubspots'
 import Items from './Items/Items'
 import Mentors from './Mentors/Mentors'
 import BottomNav from '../BottomNav/BottomNav'
+import UsedNb from './UsedNb/UsedNb'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Events/>
       <Hubspots/>
       <Items/>
+      <UsedNb/>
       <Mentors/>
       <BottomNav/>
     </>

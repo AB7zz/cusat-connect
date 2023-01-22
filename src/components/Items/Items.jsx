@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { LoginContext } from '../Context/LoginRegContext';
 
-const Item = ({url, phone, img, price, title, desc}) => {
+const Item = ({url, phone, img, price, title, desc , loc}) => {
   return (
     <Card className='ml-2 mt-8 rounded-[20px]' sx={{ width: 190, height: 160 }}>
       <CardActionArea>
@@ -30,7 +30,7 @@ const Item = ({url, phone, img, price, title, desc}) => {
           </Typography>
           <Typography className='flex relative top-[0.5px] bottom-[10px]'>
             <PinDropIcon className='text-[#cccc] text-sm' />
-            <p className='text-xs text-white text-sm'> {desc}</p>
+            <p className='text-xs text-white text-sm'> {loc}</p>
           </Typography>
           <Typography className='bg-black'>
             +91 {phone}
@@ -59,7 +59,7 @@ const Items = () => {
       </div>
       <div className='p-3 mb-24 grid grid-cols-2'>
         {items.map((item,key) => (
-          <Item url={url} phone="9778393558" img={item.img} price={item.price} title={item.title} desc={item.desc}  />
+          <Item url={url} phone="9778393558" img={item.img} price={item.price} title={item.title} desc={item.desc} loc={item.loc}  />
         ))}
         
       </div>

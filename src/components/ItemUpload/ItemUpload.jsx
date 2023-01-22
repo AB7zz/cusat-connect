@@ -1,12 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './style.css'
 import bg from '../../assets/images/static/bg.png'
 import { LoginContext } from '../Context/LoginRegContext'
 
 
 
+
 const ItemUpload = () => {
+  const navigate = useNavigate()
+    React.useEffect(() => {
+        if(localStorage.getItem('isLogin') != 'true'){
+            navigate('/home')
+        }
+    }, [])
   const {handleItemSubmit, handleItemChange, setItemImage, handleItemConfirm} = React.useContext(LoginContext)
   return (
     <>
@@ -30,9 +37,9 @@ const ItemUpload = () => {
             <input onChange={handleItemChange} className='metrofont mb-3 bg-[#172D3A] text-white px-4 py-5 rounded-[25px]' type="text" name="loc" placeholder='Location' id="loc" />
 
             <input onChange={e => setItemImage(e.target.files[0])} type="file" name="image" id="image" className='metrofont mb-3 bg-[#172D3A] text-white px-4 py-5 rounded-[25px]' />
-            <label className='font-bold text-white'>UPI Id: abhinavcv007@oksbi </label>
+            {/* <label className='font-bold text-white'>UPI Id: abhinavcv007@oksbi </label>
             <label htmlFor="" className='text-white'>Pay to the above UPI Id and attach the proof</label>
-            <input type="file" name="image" id="image" className='metrofont mb-3 bg-[#172D3A] text-white px-4 py-5 rounded-[25px]' />
+            <input type="file" name="image" id="image" className='metrofont mb-3 bg-[#172D3A] text-white px-4 py-5 rounded-[25px]' /> */}
             <input onChange={handleItemConfirm} type="checkbox" name="" id="" /> 
             <button type='submit' className='bg-[#254C6C] text-[#CED8DD] py-3 rounded-[30px] mt-2'>Upload Item</button>
             <p className='mt-4 ml-2 text-white opacity-[0.6]'>Already have an account? <Link to='/login' className='font-bold text-white'>Login</Link> </p>

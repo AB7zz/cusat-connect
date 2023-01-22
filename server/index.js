@@ -134,12 +134,13 @@ router.post('/register', async(request, response) => {
         const existsignup = await Accounts.findOne({regId: request.body.regId})
         if(existsignup){
             response.send({message: 'Account already exists'})
+        }else{
+            request.body.password = Bcrypt.hashSync(request.body.password, 10)
+            const user = request.body
+            const newUser = new Accounts(user)
+            await newUser.save()
+            response.send({message: 'You have successfully created an account', isLogin: true})
         }
-        request.body.password = Bcrypt.hashSync(request.body.password, 10)
-        const user = request.body
-        const newUser = new Accounts(user)
-        await newUser.save()
-        response.send({message: 'You have successfully created an account', isLogin: true})
     }catch(error){
         console.log('Error 2: ', error)
     }
@@ -147,7 +148,6 @@ router.post('/register', async(request, response) => {
 
 router.post('/login', async(request, response) => {
     try{
-        console.log(request.body.regId)
         const existlogin = await Accounts.findOne({regId: request.body.regId})
         if(existlogin){
             const userPassword = existlogin.password
@@ -182,6 +182,15 @@ router.get('/mentor', async(request,response) => {
         response.status(200).json(mentors)
     }catch(error){
         console.log('Error 10: ', error)
+    }
+})
+
+router.get('/mentor/:id', async(request, response) => {
+    try{
+        const mentor = await Mentors.findOne({regId: request.params.id})
+        response.status(200).json(mentor)
+    }catch(error){
+        console.log('Error 15: ', error)
     }
 })
 

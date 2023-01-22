@@ -14,7 +14,7 @@ import axios from 'axios';
 import { LoginContext } from '../Context/LoginRegContext';
 
 
-export const Mentor = ({url, name, skills, img, dept, campus}) => {
+export const Mentor = ({url, name, skills, img, dept, campus, regId}) => {
   return(
     <div>
       <Card className='mb-3 bg-cover bg-center rounded-[15px] mentorcard' style={{backgroundImage: `url(${bg})`}} sx={{ width: 190, height: 330 }}>
@@ -41,7 +41,7 @@ export const Mentor = ({url, name, skills, img, dept, campus}) => {
               Skills: {skills}
             </Typography>
             <Typography className='ml-6 mt-6'>
-              <Link className='bg-[#7A92AF33] text-white opacity-[0.7] px-6 py-2 rounded-[20px] text-sm' to='/chat'>Chat <ChatIcon /> </Link>
+              <Link className='bg-[#7A92AF33] text-white opacity-[0.7] px-6 py-2 rounded-[20px] text-sm' to={`/chat/${regId}`}>Chat <ChatIcon /> </Link>
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -72,7 +72,7 @@ const Mentors = () => {
       </div>
       <div className='grid grid-cols-2 p-4 mb-24'>
         {mentors.map((mentor, key) => (
-          <Mentor url={url} name={mentor.name} skills={mentor.skills} img={mentor.img} dept={mentor.dept} campus={mentor.campus} />
+            mentor.regId != localStorage.getItem('regId') && <Mentor url={url} name={mentor.name} skills={mentor.skills} img={mentor.img} dept={mentor.dept} campus={mentor.campus} regId={mentor.regId} />
         ))}
       </div>
       <BottomNav/>
